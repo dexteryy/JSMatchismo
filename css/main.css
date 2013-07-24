@@ -1,0 +1,63 @@
+
+body {
+  background:#ddd;
+}
+
+.wrapper {
+}
+
+.deck {
+  width:550px;
+  margin:20px auto;
+  overflow:hidden;
+  -moz-user-select: -moz-none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.deck .card {
+  float:left;
+  width:100px;
+  height:150px;
+  margin:15px;
+  border:1px solid #333;
+  background:url(../pics/bg.jpg);
+  border-radius:8px;
+  font-size:30px;
+  box-shadow:1px 1px 4px rgba(0, 0, 0, .4);
+  cursor:pointer;
+}
+
+.deck .card .front {
+  display:none;
+}
+
+.deck .card.selected {
+  background:#fff;
+}
+
+.deck .card.selected .front {
+  display:inline;
+}
+
+.deck .card:disabled {
+  opacity:0.3;
+}
+
+.stats {
+  width:520px;
+  margin:20px auto;
+  padding:0 15px;
+  font-size:18px;
+  height:20px;
+  line-height:20px;
+}
+
+.stats .count {
+  float:left;
+}
+
+.stats .score {
+  float:right;
+}
