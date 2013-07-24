@@ -7,7 +7,7 @@ body {
 }
 
 .deck {
-  width:550px;
+  max-width:550px;
   margin:20px auto;
   overflow:hidden;
   -moz-user-select: -moz-none;
@@ -46,7 +46,7 @@ body {
 }
 
 .stats {
-  width:520px;
+  max-width:520px;
   margin:20px auto;
   padding:0 15px;
   font-size:18px;
@@ -60,4 +60,18 @@ body {
 
 .stats .score {
   float:right;
+}
+
+.footer {
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:12px;
+  color:#999;
+}
+
+.footer a {
+  color:#666;
 }

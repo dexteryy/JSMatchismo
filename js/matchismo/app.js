@@ -1,6 +1,6 @@
 
 (function(view, playingCardDeck, cardMatchingGame){
-	'use strict';
+    'use strict';
 
     var _flipCount = 0;
 

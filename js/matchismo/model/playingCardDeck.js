@@ -1,6 +1,6 @@
 
 (function(deck, playingCard){
-	'use strict';
+    'use strict';
 
     var PlayingCard = playingCard.PlayingCard;
 

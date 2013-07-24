@@ -1,6 +1,6 @@
 
 (function(){
-	'use strict';
+    'use strict';
 
     var MATCH_BONUS = 4,
         MISMATCH_PENALTY = 2,

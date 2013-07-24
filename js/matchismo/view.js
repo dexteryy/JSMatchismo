@@ -1,6 +1,6 @@
 
 (function(doc){
-	'use strict';
+    'use strict';
 
     var MATCHES_SELECTOR = [
         'webkitMatchesSelector', 
