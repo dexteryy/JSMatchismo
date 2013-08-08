@@ -31,7 +31,7 @@
             }
             return score;
         }
-    
+
     };
 
     function exports(){

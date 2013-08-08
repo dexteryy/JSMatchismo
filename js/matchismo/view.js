@@ -10,6 +10,8 @@
         return this[name];
     }, doc.body)[0];
 
+    var TPL_CARD = '<div class="front">{{contents}}</div>';
+
     var clickEvents = {
 
         '.card, .card *': function(){
@@ -28,27 +30,23 @@
 
     var view = {
 
-        action: pubsub(),
+        action: pubsub(), // event(), notify(), ...
 
         init: function(opt){
-            this.cardButtons = doc.querySelectorAll('.card');
-            this.updateCardButtons(function(){
-                return {
-                    contents: opt.setCardsForSelected
-                        && opt.setCardsForSelected(),
-                };
-            });
             this.flipsLabel = doc.querySelector('.count');
             this.scoreLabel = doc.querySelector('.score');
+            this.cardButtons = doc.querySelectorAll('.card');
+            this.updateCardButtons(function(){
+                return opt.cardData && opt.cardData() || {};
+            });
             delegate(doc.body, 'click', clickEvents);
         },
 
         updateCardButtons: function(fn, context){
-            Array.prototype.forEach.call(view.cardButtons, function(cardButton, i){
+            Array.prototype.forEach.call(this.cardButtons, function(cardButton, i){
                 var data = fn.call(context, i);
+                cardButton.innerHTML = format(TPL_CARD, data);
                 cardButton.classList.add('animated');
-                cardButton.querySelector('.front')
-                    .innerHTML = data.contents;
                 if (data.isFaceUp) {
                     cardButton.classList.add('selected');
                     cardButton.classList.add('flipInY');
@@ -67,7 +65,7 @@
         updateFlipsLabel: function(data){
             this.flipsLabel.innerHTML = format("Flip: {{count}}", data);
         }
-    
+
     };
 
     function format(str, data){

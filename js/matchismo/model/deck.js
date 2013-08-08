@@ -31,7 +31,7 @@
             }
             return randomCard;
         }
-    
+
     };
 
     function exports(){

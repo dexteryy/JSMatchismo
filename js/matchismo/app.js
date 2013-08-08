@@ -13,20 +13,8 @@
     var app = {
 
         init: function(){
-            view.init({
-                //setCardsForSelected: function(){
-                    //var card = this.deck().drawRandomCard();
-                    //return {
-                        //contents: card.contents()
-                    //};
-                //}.bind(this)
-            });
-            this.updateUI();
+            view.init({});
         },
-
-        //deck: function(){
-            //return this._deck || (this._deck = playingCardDeck());
-        //},
 
         game: function(){
             return this._game || (this._game = cardMatchingGame({
@@ -36,6 +24,12 @@
         },
 
         updateUI: function(){
+            view.updateFlipsLabel({
+                count: _flipCount
+            });
+            view.updateScoreLabel({
+                score: this.game().score()
+            });
             view.updateCardButtons(function(i){
                 var card = this.game().cardAtIndex(i);
                 return {
@@ -44,12 +38,6 @@
                     isUnplayalbe: card.isUnplayalbe
                 };
             }, this);
-            view.updateFlipsLabel({
-                count: _flipCount
-            });
-            view.updateScoreLabel({
-                score: this.game().score()
-            });
         }
 
     };

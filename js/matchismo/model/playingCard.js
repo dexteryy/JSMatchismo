@@ -51,22 +51,22 @@
                 return this._rank;
             }
         }
-    
+
     };
 
     Object.keys(playingCardMethods).forEach(function(name){
         this[name] = playingCardMethods[name];
     }, PlayingCard.prototype);
 
+    PlayingCard.maxRank = function(){
+        return _rankStrings.length - 1;
+    };
+
     PlayingCard.validSuits = function(){
         if (!_validSuits) {
             _validSuits = { "♥": 1, "♦": 1, "♠": 1, "♣": 1 };
         }
         return _validSuits;
-    };
-
-    PlayingCard.maxRank = function(){
-        return _rankStrings.length - 1;
     };
 
     function exports(){
